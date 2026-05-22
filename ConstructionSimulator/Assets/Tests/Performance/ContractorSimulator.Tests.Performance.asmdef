@@ -1,0 +1,23 @@
+{
+    "name": "ContractorSimulator.Tests.Performance",
+    "rootNamespace": "ContractorSimulator.Tests.Performance",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Unity.PerformanceTesting",
+        "ContractorSimulator.Runtime",
+        "ContractorSimulator.Tests.Shared"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false,
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}

@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &800010000
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800010001}
+  - component: {fileID: 800010002}
+  - component: {fileID: 800010003}
+  - component: {fileID: 800010004}
+  - component: {fileID: 800010005}
+  - component: {fileID: 800010006}
+  - component: {fileID: 800010007}
+  - component: {fileID: 800010008}
+  m_Layer: 0
+  m_Name: PF_RepairWall
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &800010001
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 800010000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 4}
+  m_LocalScale: {x: 3, y: 2, z: 0.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &800010002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 800010000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  DontDestroyWithOwner: 0
+--- !u!114 &800010003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 800010000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: f1a2b3c4d5e6478990abcdef12345681, type: 3}
+  m_EditorClassIdentifier: ContractorSimulator.Runtime::ContractorSimulator.Networking.Replication.NetworkRepairable
+  repairAmountPerUse: 0.1
+  maxRepairDistance: 3.5
+--- !u!114 &800010004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 800010000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: f2a3b4c5d6e7478990abcdef12345682, type: 3}
+  m_EditorClassIdentifier: ContractorSimulator.Runtime::ContractorSimulator.Interaction.RepairableSurface
+  toolPrompt: Press [Use Tool] to repair wall
+  requiresRepairTool: 1
+--- !u!114 &800010005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 800010000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: f3a4b5c6d7e8478990abcdef12345683, type: 3}
+  m_EditorClassIdentifier: ContractorSimulator.Runtime::ContractorSimulator.Networking.Replication.RepairProgressVisual
+  targetRenderer: {fileID: 800010007}
+  damagedColor: {r: 0.45, g: 0.3, b: 0.25, a: 1}
+  repairedColor: {r: 0.75, g: 0.72, b: 0.68, a: 1}
+--- !u!33 &800010006
+MeshFilter:
+  m_GameObject: {fileID: 800010000}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &800010007
+MeshRenderer:
+  m_GameObject: {fileID: 800010000}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038123, type: 2}
+--- !u!65 &800010008
+BoxCollider:
+  m_GameObject: {fileID: 800010000}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

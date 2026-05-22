@@ -619,6 +619,25 @@ When modifying gameplay:
 
 ---
 
+# Testing
+
+Automated tests live in `ConstructionSimulator/Assets/Tests/`.
+
+| Type | Location | When to use |
+|------|----------|-------------|
+| Unit (Edit Mode) | `Tests/EditMode/` | Serialization, paths, pure logic |
+| Integration (Play Mode) | `Tests/PlayMode/` | MonoBehaviour, save I/O, interaction |
+| Scene smoke | `Tests/PlayMode/Scenes/` | Scene in Build Settings |
+| Networking | `Tests/PlayMode/Networking/` | Netcode host/client (future) |
+| Performance | `Tests/Performance/` | Benchmarks / regression budgets |
+
+- Runtime gameplay code: assembly `ContractorSimulator.Runtime` (`Assets/_Project/Scripts/`).
+- Use `TestFileUtility` for temp files; do not overwrite production `save_data.json`.
+- Filter categories: `Unit`, `Integration`, `Networking`, `Scene`, `Performance`, `Slow`.
+- See `Assets/Tests/README.md` for Test Runner and CI commands.
+
+---
+
 # Git Rules
 
 DO:
@@ -654,3 +673,70 @@ Possible future systems:
 Architecture should remain scalable enough to support future expansion without major rewrites.
 
 ---
+
+Core Essential Packages
+Input System
+
+Modern Unity input handling for movement, interaction, UI controls, and future controller support.
+
+Netcode for GameObjects
+
+Unity’s multiplayer system for co-op gameplay, syncing players, objects, and gameplay state.
+
+Unity Transport
+
+Low-level networking transport layer required for Netcode to communicate over the network.
+
+TextMeshPro
+
+Advanced UI text system for crisp fonts, HUD elements, menus, and in-game UI.
+
+Cinemachine
+
+Camera system for smooth first-person camera control, transitions, shake, and cinematic shots.
+
+Multiplayer / Debug Tools
+Multiplayer Tools
+
+Debugging suite for analyzing network traffic, latency, and multiplayer synchronization issues.
+
+Gameplay / Prototyping Tools
+Starter Assets – First Person Controller
+
+Prebuilt first-person movement system (walking, sprinting, jumping, mouse look) to speed up MVP development.
+
+ProBuilder
+
+In-Unity level/blockout tool for quickly building test houses, rooms, and prototype environments.
+
+Data / Systems
+Newtonsoft JSON
+
+Powerful JSON serialization library used for save/load systems, contracts, and game data storage.
+
+Rendering / Visual Systems
+Universal Render Pipeline (URP)
+
+Modern rendering pipeline for performance-friendly lighting, materials, and scalable visuals.
+
+Optional but Recommended Polish Tools
+DOTween
+
+Animation/tweening library for smooth UI movement, camera effects, and interactive polish.
+
+Minimum Bootstrap Set (What You Actually Need First)
+
+If you want the tight MVP setup, install ONLY:
+
+Input System
+Netcode for GameObjects
+Unity Transport
+TextMeshPro
+Starter Assets (First Person Controller)
+
+Then optionally add:
+
+Cinemachine
+ProBuilder
+Multiplayer Tools
+

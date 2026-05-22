@@ -1,0 +1,16 @@
+{
+    "name": "ContractorSimulator.Tests.Shared",
+    "rootNamespace": "ContractorSimulator.Tests",
+    "references": [
+        "ContractorSimulator.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -44,6 +44,11 @@ Icon?
 MemoryCaptures/
 UserSettings/
 
+# Unity Test Runner / Code Coverage
+TestResults/
+CodeCoverage/
+**/TestResults.xml
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 

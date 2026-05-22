@@ -1,4 +1,10 @@
 ﻿<Solution>
+  <Project Path="ContractorSimulator.Runtime.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="ContractorSimulator.Tests.EditMode.csproj" />
+  <Project Path="ContractorSimulator.Tests.PlayMode.csproj" />
+  <Project Path="StarterAssets.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="ContractorSimulator.Tests.Shared.csproj" />
+  <Project Path="ContractorSimulator.Tests.Performance.csproj" />
 </Solution>

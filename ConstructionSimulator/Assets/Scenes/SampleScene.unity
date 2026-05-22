@@ -133,11 +133,11 @@ GameObject:
   - component: {fileID: 330585547}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &330585544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -423,6 +423,158 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &700003001
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700003002}
+  - component: {fileID: 700003003}
+  - component: {fileID: 700003004}
+  - component: {fileID: 700003005}
+  m_Layer: 0
+  m_Name: Ground
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &700003002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700003001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!33 &700003003
+MeshFilter:
+  m_GameObject: {fileID: 700003001}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &700003004
+MeshRenderer:
+  m_GameObject: {fileID: 700003001}
+  m_Enabled: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038123, type: 2}
+--- !u!65 &700003005
+BoxCollider:
+  m_GameObject: {fileID: 700003001}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &700002001
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700002002}
+  - component: {fileID: 700002003}
+  m_Layer: 0
+  m_Name: NetworkGameplay
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &700002002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700002001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &700002003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700002001}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: f6a7b8c9d0f1478990abcdef12345686, type: 3}
+  m_EditorClassIdentifier: ContractorSimulator.Runtime::ContractorSimulator.Networking.Replication.NetworkSceneGameplayInitializer
+  repairWallPrefab: {fileID: 800010000, guid: e2f3a4b5c6d7478990abcdef12345672, type: 3}
+  repairWallPosition: {x: 0, y: 1.5, z: 4}
+  repairWallScale: {x: 3, y: 2, z: 0.25}
+--- !u!1 &700001001
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700001002}
+  m_Layer: 0
+  m_Name: PlayerSpawnPoints
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &700001002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700001001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 700001004}
+  - {fileID: 700001006}
+  m_Father: {fileID: 0}
+--- !u!1 &700001003
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700001004}
+  - component: {fileID: 700001005}
+  m_Layer: 0
+  m_Name: SpawnPoint_1
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &700001004
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700001003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 700001002}
+--- !u!114 &700001005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700001003}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: d5e6f7a8b9c0478990abcdef12345677, type: 3}
+  m_EditorClassIdentifier: ContractorSimulator.Runtime::ContractorSimulator.Networking.PlayerSync.NetworkPlayerSpawnPoint
+--- !u!1 &700001007
+GameObject:
+  m_ObjectHideFlags: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700001006}
+  - component: {fileID: 700001008}
+  m_Layer: 0
+  m_Name: SpawnPoint_2
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &700001006
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700001007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 700001002}
+--- !u!114 &700001008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 700001007}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: d5e6f7a8b9c0478990abcdef12345677, type: 3}
+  m_EditorClassIdentifier: ContractorSimulator.Runtime::ContractorSimulator.Networking.PlayerSync.NetworkPlayerSpawnPoint
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -430,3 +582,6 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 700001002}
+  - {fileID: 700002002}
+  - {fileID: 700003002}

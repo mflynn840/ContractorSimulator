@@ -1,0 +1,72 @@
+# Runs Unity Edit Mode and Play Mode tests in CI.
+# Setup: https://game.ci/docs/github/test-runner
+#
+# Required repository secrets:
+#   UNITY_LICENSE   — Unity activation file contents (ULF)
+#   UNITY_EMAIL     — Unity account email (for activation)
+#   UNITY_PASSWORD  — Unity account password (for activation)
+#
+# Optional: use UNITY_SERIAL instead of email/password if you have a serial license.
+
+name: Unity Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+env:
+  UNITY_VERSION: 6000.4.7f1
+  PROJECT_PATH: ConstructionSimulator
+
+jobs:
+  editmode-tests:
+    name: Edit Mode Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          unityVersion: ${{ env.UNITY_VERSION }}
+          testMode: editmode
+          artifactsPath: TestResults/editmode
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: TestResults-EditMode
+          path: ${{ env.PROJECT_PATH }}/TestResults
+
+  playmode-tests:
+    name: Play Mode Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          unityVersion: ${{ env.UNITY_VERSION }}
+          testMode: playmode
+          artifactsPath: TestResults/playmode
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: TestResults-PlayMode
+          path: ${{ env.PROJECT_PATH }}/TestResults
